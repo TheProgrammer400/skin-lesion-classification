@@ -1,0 +1,19 @@
+metric,test_set,images,mean,std
+Balanced accuracy,HAM10000 (internal test folds),~2004 per fold,0.754,0.030
+Balanced accuracy,ISIC 2019 (external),4859,0.481,0.024
+Balanced accuracy,Independent ISIC set (external),3134,0.468,0.013
+Macro F1,HAM10000 (internal test folds),~2004 per fold,0.684,0.024
+Macro F1,ISIC 2019 (external),4859,0.394,0.035
+Macro AUC,HAM10000 (internal test folds),~2004 per fold,0.958,0.005
+Macro AUC,ISIC 2019 (external),4859,0.848,0.007
+Malignant-vs-benign AUC (classifier),HAM10000 (internal test folds),~2004 per fold,0.909,0.010
+Malignant-vs-benign AUC (classifier),ISIC 2019 (external),4859,0.710,0.033
+Malignant-vs-benign AUC (classifier),Independent ISIC set (external),3134,0.723,0.023
+Melanoma AUC,HAM10000 (internal test folds),~2004 per fold,0.887,0.022
+Melanoma AUC,ISIC 2019 (external),4859,0.763,0.020
+ECE,HAM10000 (internal test folds),~2004 per fold,0.079,0.027
+ECE,ISIC 2019 (external),4859,0.138,0.037
+ECE,Independent ISIC set (external),3134,0.135,0.041
+Error-detection AUC (1 - max probability),HAM10000 (internal test folds),~2004 per fold,0.828,0.025
+Error-detection AUC (1 - max probability),ISIC 2019 (external),4859,0.629,0.016
+Error-detection AUC (1 - max probability),Independent ISIC set (external),3134,0.604,0.018

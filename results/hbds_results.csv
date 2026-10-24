@@ -1,0 +1,4 @@
+test_set,auc_classifier,auc_classifier_plus_hbds,auc_gain,auc_gain_ci95_low,auc_gain_ci95_high,auc_hbds_alone
+HAM10000 (internal test folds),0.909,0.924,0.015,0.011,0.020,0.811
+ISIC 2019 (external),0.710,0.794,0.084,0.074,0.095,0.746
+Independent ISIC set (external),0.723,0.763,0.040,0.028,0.051,0.689

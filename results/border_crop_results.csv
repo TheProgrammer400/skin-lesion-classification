@@ -1,0 +1,4 @@
+experiment,test_set,images,balanced_acc_before_pct,balanced_acc_after_pct,gain_pp,gain_ci95_low_pp,gain_ci95_high_pp,note
+Crop only when a border is detected (rule fixed in advance),ISIC 2019 bordered images not used before,554,31.6,40.8,9.2,6.2,12.8,confirmatory
+Same policy,Full ISIC 2019 sample,4859,48.1,50.6,2.5,1.7,3.5,exploratory
+Same policy,Independent ISIC set (90 bordered),3134,46.8,47.3,0.45,0.19,0.82,few bordered images

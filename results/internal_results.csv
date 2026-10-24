@@ -1,0 +1,6 @@
+model,accuracy_pct_mean,accuracy_pct_std,balanced_accuracy_pct_mean,balanced_accuracy_pct_std,macro_f1_pct_mean,macro_f1_pct_std,macro_auc_mean,macro_auc_std,malignant_vs_benign_auc_mean,malignant_vs_benign_auc_std,ece_mean,ece_std
+EfficientNet-B4,66.60,5.38,71.51,3.10,61.64,4.10,0.937,0.008,0.881,0.020,0.079,0.009
+ConvNeXt-Base,72.77,2.14,71.83,3.31,68.59,1.75,0.942,0.015,0.896,0.013,0.089,0.012
+DenseNet-121,63.23,0.80,73.19,1.79,61.49,2.07,0.943,0.005,0.887,0.005,0.094,0.012
+Ensemble (soft vote),70.08,2.66,75.41,2.95,68.37,2.38,0.958,0.005,0.911,0.011,0.080,0.033
+Ensemble + MC Dropout + temperature scaling,70.11,2.78,75.41,3.01,68.38,2.39,0.958,0.005,0.909,0.010,0.079,0.027

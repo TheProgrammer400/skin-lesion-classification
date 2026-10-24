@@ -1,0 +1,28 @@
+# Python 3.12 (the version used in the study)
+#
+# PyTorch with GPU support: install torch/torchvision first with the command for your CUDA
+# version from https://pytorch.org/get-started/locally/ , then install the rest of this file.
+
+# Deep learning
+torch==2.5.1
+torchvision==0.20.1
+timm==1.0.27
+
+# Images and augmentation
+albumentations==2.0.8
+opencv-python>=4.8
+pillow>=10.0
+
+# Data, metrics and statistics
+numpy>=1.26
+pandas>=2.1
+scikit-learn>=1.4
+scipy>=1.11
+
+# Explainability (Grad-CAM++)
+grad-cam>=1.5
+
+# Plots and notebooks
+matplotlib>=3.8
+tqdm>=4.66
+jupyter>=1.0

@@ -1,0 +1,9 @@
+setting,gpu_median_ms,gpu_p10_ms,gpu_p90_ms,cpu_median_ms,cpu_p10_ms,cpu_p90_ms
+Ensemble deterministic (3 backbones),66.7,62.1,74.0,862.4,730.4,935.6
+"Ensemble + MC Dropout, full forward passes (3 x 30)",1694.6,1639.3,1748.6,26346.1,25702.7,27310.3
+"Ensemble + MC Dropout, head-only sampling",66.9,63.1,73.2,789.8,746.5,931.0
+Full framework (head-only MC + HBDS),67.7,62.2,80.8,836.0,723.4,913.1
+"EfficientNet-B4, one pass",25.1,22.9,28.4,169.5,150.8,181.2
+"ConvNeXt-Base, one pass",19.7,16.5,26.7,305.3,274.9,316.6
+"DenseNet-121, one pass",22.8,20.7,27.9,396.3,365.7,464.1
+Grad-CAM++ (EfficientNet-B4),59.4,55.2,66.1,486.2,372.7,537.4

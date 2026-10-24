@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ---------------------------------------------------------------- Jupyter
+.ipynb_checkpoints/
+
+# ---------------------------------------------------------------- Datasets (download separately; see README)
+data/
+dataset/
+datasets/
+HAM10000*/
+ISIC*/
+*.zip
+*.tar
+*.tar.gz
+
+# ---------------------------------------------------------------- Model weights (hosted separately; see README)
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# ---------------------------------------------------------------- Caches, feature dumps, raw run outputs
+cache/
+outputs*/
+*.npy
+*.npz
+runs/
+wandb/
+mlruns/
+lightning_logs/
+
+# ---------------------------------------------------------------- Secrets
+.env
+*.key
+kaggle.json
+
+# ---------------------------------------------------------------- Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
