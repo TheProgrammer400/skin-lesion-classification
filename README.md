@@ -214,9 +214,30 @@ Options: `--folds` (fold ensemble to use, default `0`), `--temperature` (calibra
 
 ### Reproduce the experiments
 
-1. Download the datasets (see [Dataset](#dataset)) and set the paths at the top of each notebook.
-2. Run the notebooks in order, `01` to `08`. Notebook `02` trains the 15 models (3 backbones × 5 folds); the later notebooks
-   evaluate them and write the tables in `results/`.
+1. Download the datasets (see [Dataset](#dataset)) and point the notebooks to them, either by editing the paths in the
+   configuration cell or with environment variables:
+
+   | Variable | Default | Contents |
+   |---|---|---|
+   | `HAM10000_DIR` | `D:/HAM_PROJECT/dataset` | HAM10000 images, `HAM10000_metadata.csv`, lesion masks |
+   | `ISIC2019_DIR` | `D:/Skin Dataset/ISIC2019` | ISIC 2019 training images, ground truth and metadata CSVs |
+   | `HAM_PROJECT_OUT` | `D:/HAM_PROJECT/outputs_v2` | image caches, folds, checkpoints, features and intermediate tables (not tracked by Git) |
+
+2. Run the notebooks in order:
+
+   | Notebook | Does | Writes |
+   |---|---|---|
+   | `01_data_and_splits` | leakage audit, lesion-grouped folds, image cache | `splits/lesion_grouped_folds.csv` |
+   | `02_training` | trains 3 backbones × 5 folds (resumable; existing checkpoints are never overwritten) | `outputs/checkpoints/` |
+   | `03_internal_evaluation` | ensemble, MC Dropout, calibration, confusion matrix | `results/internal_results.csv`, `results/confusion_matrix.png` |
+   | `04_hbds` | benign deviation score, risk types, ablation | `outputs/tables/` |
+   | `05_gradcam` | Grad-CAM++ localisation against expert masks | `outputs/tables/` |
+   | `06_inference_speed` | head-only vs full MC Dropout: identity check and timing | `results/timing_results.csv` |
+   | `07_external_validation` | ISIC 2019 and independent set | `results/external_results.csv`, `results/hbds_results.csv`, `results/external_vs_internal.png` |
+   | `08_failure_analysis` | border crop, colour constancy, prior shift, linear probes | `results/border_crop_results.csv` |
+
+   Notebooks 03–08 only need trained checkpoints; with the released weights you can skip notebook 02. Every notebook reuses
+   existing caches and splits, so the published folds stay fixed.
 
 Training uses fixed seeds, but GPU non-determinism means retrained models can differ: three retrainings of the same
 configuration gave external balanced accuracies between 0.481 and 0.502. The ensemble reduces this variation.
@@ -225,7 +246,8 @@ configuration gave external balanced accuracies between 0.481 and 0.502. The ens
 
 <!-- Replace this paragraph with the download link and SHA-256 checksums once the checkpoints are hosted. -->
 The trained checkpoints are not included in this repository because of their size. `predict.py` expects them in the layout
-`checkpoints/fold{k}/{efficientnet_b4,convnext_base,densenet121}.pth`. Because they were trained on CC BY-NC data, the weights
+`checkpoints/fold{k}/{efficientnet_b4,convnext_base,densenet121}.pth`; checkpoints trained with notebook 02 can be used directly
+with `--weights-dir <HAM_PROJECT_OUT>/checkpoints`. Because they were trained on CC BY-NC data, the weights
 are for non-commercial research use only.
 
 ---
